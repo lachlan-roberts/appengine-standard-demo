@@ -19,8 +19,9 @@ Use this in maven plugin configuration to pick up credential set from `gcloud in
 
 May need to run `gcloud auth login` to allow permissions from browser.
 
+Run `mvn clean package appengine:stage` to build application locally at `target/appengine-staging`.
 
-Run `mvn clean install appengine:deploy` to deploy application. This by default uses the `default` service within the project.
+Run `mvn clean package appengine:deploy` to deploy application. This by default uses the `default` service within the project.
 
 
 To deploy with a custom runtime you need to put `runtime-deployment` jars inside of `webapp` directory (`runtime-impl.jar`, `runtime-main.jar`, `runtime-shared.jar`). Then deploy with the following inside the `appengine-web.xml` file.

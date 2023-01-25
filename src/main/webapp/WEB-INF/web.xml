@@ -13,7 +13,30 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>MaxResponseSizeTestServlet</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BugReproducerServlet</servlet-name>
+    <servlet-class>org.example.BugReproducerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BugReproducerServlet</servlet-name>
+    <url-pattern>/bug</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BugReproducerServlet</servlet-name>
+    <url-pattern>/Bug</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>DumpServlet</servlet-name>
+    <servlet-class>org.example.DumpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DumpServlet</servlet-name>
+    <url-pattern>/dump/*</url-pattern>
   </servlet-mapping>
 </web-app>
 

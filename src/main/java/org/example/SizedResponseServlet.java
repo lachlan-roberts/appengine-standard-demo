@@ -17,8 +17,8 @@
 package org.example;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,10 +32,10 @@ public class SizedResponseServlet extends HttpServlet {
         long size = (sizeParam == null) ? 0 : Long.parseLong(sizeParam);
 
         // Write 32MB of data.
-        PrintWriter writer = resp.getWriter();
+        ServletOutputStream outputStream = resp.getOutputStream();
         for (int i = 0; i < size; i++)
         {
-            writer.print("x");
+            outputStream.write((byte)'x');
         }
     }
 }
