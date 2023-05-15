@@ -19,13 +19,14 @@ package org.example;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class SizedResponseServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/plain");
 
         String sizeParam = req.getParameter("size");
@@ -33,6 +34,8 @@ public class SizedResponseServlet extends HttpServlet {
 
         // Write 32MB of data.
         ServletOutputStream outputStream = resp.getOutputStream();
+        String gaeRuntime = System.getenv("GAE_RUNTIME");
+        outputStream.println("Runtime='" + gaeRuntime + "'");
         for (int i = 0; i < size; i++)
         {
             outputStream.write((byte)'x');

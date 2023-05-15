@@ -1,4 +1,10 @@
 
+## Running Locally
+Use the command `mvn appengine:stage` to build the project.
+Then use `./debug` script to deploy locally.
+
+
+## Remote Deployment
 
 Run `gcloud init` from project root.
 

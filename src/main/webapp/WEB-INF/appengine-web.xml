@@ -16,7 +16,7 @@
 -->
 
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-  <runtime>java8</runtime>
+  <runtime>java11</runtime>
   <application>maxresponsesizeapp</application>
   <version>1</version>
   <threadsafe>true</threadsafe>
@@ -31,17 +31,17 @@
 <!--    <env-var name="GAE_DISABLE_NGINX" value="true" />-->
 <!--  </env-variables>-->
 
-<!--  <entrypoint>-->
-<!--    java-->
-<!--    &#45;&#45;add-opens java.base/java.lang=ALL-UNNAMED-->
-<!--    &#45;&#45;add-opens java.base/java.nio.charset=ALL-UNNAMED-->
-<!--    -showversion -XX:+PrintCommandLineFlags-->
-<!--    -Djava.class.path=runtime-main.jar-->
-<!--    -Dclasspath.runtimebase=.:-->
-<!--    com/google/apphosting/runtime/JavaRuntimeMainWithDefaults-->
-<!--    &#45;&#45;fixed_application_path=.-->
-<!--    .-->
-<!--  </entrypoint>-->
+  <entrypoint>
+    java
+    --add-opens java.base/java.lang=ALL-UNNAMED
+    --add-opens java.base/java.nio.charset=ALL-UNNAMED
+    -showversion -XX:+PrintCommandLineFlags
+    -Djava.class.path=runtime-main.jar
+    -Dclasspath.runtimebase=.:
+    com/google/apphosting/runtime/JavaRuntimeMainWithDefaults
+    --fixed_application_path=.
+    .
+  </entrypoint>
 
 
 </appengine-web-app>
