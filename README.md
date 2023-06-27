@@ -1,8 +1,9 @@
 
 ## Running Locally
 Use the command `mvn appengine:stage` to build the project.
-Then use `./debug` script to deploy locally.
+Then use `./debug.sh` script to deploy locally.
 
+You may need to update `APPENGINE_JAVA_STANDARD` and `APP_LOCATION` vars inside the `debug.sh` file.
 
 ## Remote Deployment
 
