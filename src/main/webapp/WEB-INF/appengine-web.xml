@@ -16,10 +16,33 @@
 -->
 
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-  <runtime>java11</runtime>
+  <runtime>java21</runtime>
   <application>maxresponsesizeapp</application>
   <version>1</version>
   <instance-class>F4</instance-class>
+
+  <system-properties>
+<!--    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>-->
+    <property name="appengine.use.jetty12" value="true"/>
+<!--    <property name="appengine.use.EE10" value="false"/>-->
+  </system-properties>
+
+    <env-variables>
+<!--      <env-var name="PORT_ENV_VARIABLE_NAME" value="8080" />-->
+<!--      <env-var name="GAE_DISABLE_NGINX" value="true" />-->
+    </env-variables>
+
+  <entrypoint>
+    java
+    --add-opens java.base/java.lang=ALL-UNNAMED
+    --add-opens java.base/java.nio.charset=ALL-UNNAMED
+    -showversion -XX:+PrintCommandLineFlags
+    -Djava.class.path=runtime-main.jar
+    -Dclasspath.runtimebase=.:
+    com/google/apphosting/runtime/JavaRuntimeMainWithDefaults
+    --fixed_application_path=.
+    .
+  </entrypoint>
 
 </appengine-web-app>
 
