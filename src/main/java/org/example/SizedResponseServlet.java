@@ -17,7 +17,7 @@
 package org.example;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
+import java.util.logging.Logger;
 import javax.servlet.ServletInputStream;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +25,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class SizedResponseServlet extends HttpServlet {
+    private static final Logger logger = Logger.getLogger(SizedResponseServlet.class.getName());
+
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         resp.setContentType("text/plain");
         // resp.setHeader("Cache-Control", "public,max-age=8600");
@@ -35,6 +37,12 @@ public class SizedResponseServlet extends HttpServlet {
         resp.setHeader("Request", req.getClass().getName());
         resp.setHeader("Req_Location", req.getClass().getProtectionDomain().getCodeSource().getLocation().toString());
         resp.setHeader("CDBG_DISABLE", System.getenv("CDBG_DISABLE"));
+
+        req.getServletContext().log("test-log-from-app", new IllegalStateException("foo bar"));
+        logger.fine("Fine log message.");
+        logger.info("Information log message.");
+        logger.warning("Warning log message.");
+        logger.severe("Error log message.");
 
         ServletInputStream inputStream = req.getInputStream();
         int totalRead = 0;

@@ -16,6 +16,24 @@
     <servlet-name>SizedResponseServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LoggerDumpServlet</servlet-name>
+    <servlet-class>org.example.LoggerDumpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoggerDumpServlet</servlet-name>
+    <url-pattern>/logger</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>org.example.TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
 </web-app>
 
 
