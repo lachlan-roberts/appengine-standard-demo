@@ -5,6 +5,16 @@ Then use `./debug.sh` script to deploy locally.
 
 You may need to update `APPENGINE_JAVA_STANDARD` and `APP_LOCATION` vars inside the `debug.sh` file.
 
+If you want to deploy with the SDK assembly you can use the command:
+```
+$APPENGINE_JAVA_STANDARD/sdk_assembly/target/appengine-java-sdk/bin/dev_appserver.sh $APP_LOCATION.
+```
+
+You can use the `target/gae-standard-demo-1.0-SNAPSHOT/` as the `$APP_LOCATION` or you can stage the application to the `$APP_LOCATION` directory with the command: 
+```
+$APPENGINE_JAVA_STANDARD/sdk_assembly/target/appengine-java-sdk/bin/appcfg.sh stage target/appengine-spring-boot-ee10-1.0.0-SNAPSHOT/ $APP_LOCATION
+```
+
 ## Remote Deployment
 
 Run `gcloud init` from project root.
@@ -47,6 +57,10 @@ To deploy with a custom runtime you need to put `runtime-deployment` jars inside
 </entrypoint>
 ```
 
+To deploy a custom appengine-staging directory without a rebuild you can do:
+```
+gcloud app deploy target/appengine-staging/
+```
 
 To view appengine deployments and logs go to
 https://console.cloud.google.com/appengine

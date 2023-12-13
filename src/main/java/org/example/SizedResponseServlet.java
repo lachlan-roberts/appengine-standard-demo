@@ -32,17 +32,6 @@ public class SizedResponseServlet extends HttpServlet {
 
         resp.setContentType("text/plain");
         // resp.setHeader("Cache-Control", "public,max-age=8600");
-        String runtime = System.getenv("GAE_RUNTIME");
-        resp.setHeader("RUNTIME_VERSION", (runtime == null ? "null" : runtime));
-        resp.setHeader("Request", req.getClass().getName());
-        resp.setHeader("Req_Location", req.getClass().getProtectionDomain().getCodeSource().getLocation().toString());
-        resp.setHeader("CDBG_DISABLE", System.getenv("CDBG_DISABLE"));
-
-        req.getServletContext().log("test-log-from-app", new IllegalStateException("foo bar"));
-        logger.fine("Fine log message.");
-        logger.info("Information log message.");
-        logger.warning("Warning log message.");
-        logger.severe("Error log message.");
 
         ServletInputStream inputStream = req.getInputStream();
         int totalRead = 0;

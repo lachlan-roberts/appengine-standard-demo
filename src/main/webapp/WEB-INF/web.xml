@@ -14,7 +14,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SizedResponseServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/size</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -34,6 +34,29 @@
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/test</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DumpServlet</servlet-name>
+    <servlet-class>org.example.DumpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DumpServlet</servlet-name>
+    <url-pattern>/dump</url-pattern>
+  </servlet-mapping>
+
+<!--  <filter>-->
+<!--    <filter-name>LastModifiedFilter</filter-name>-->
+<!--    <filter-class>org.example.LastModifiedFilter</filter-class>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>LastModifiedFilter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--    <dispatcher>REQUEST</dispatcher>-->
+<!--    <dispatcher>FORWARD</dispatcher>-->
+<!--    <dispatcher>INCLUDE</dispatcher>-->
+<!--    <dispatcher>ASYNC</dispatcher>-->
+<!--    <dispatcher>ERROR</dispatcher>-->
+<!--  </filter-mapping>-->
 </web-app>
 
 
