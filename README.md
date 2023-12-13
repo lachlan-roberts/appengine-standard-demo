@@ -46,14 +46,16 @@ To deploy with a custom runtime you need to put `runtime-deployment` jars inside
 ```
 <entrypoint>
   java
+  -showversion
   --add-opens java.base/java.lang=ALL-UNNAMED
   --add-opens java.base/java.nio.charset=ALL-UNNAMED
-  -showversion -XX:+PrintCommandLineFlags
+  --add-opens java.logging/java.util.logging=ALL-UNNAMED
+  --add-opens java.base/java.util.concurrent=ALL-UNNAMED
+  -Dclasspath.runtimebase=/workspace
   -Djava.class.path=runtime-main.jar
-  -Dclasspath.runtimebase=.:
+  -Djava.library.path=.:
   com/google/apphosting/runtime/JavaRuntimeMainWithDefaults
-  --fixed_application_path=.
-  .
+  --fixed_application_path=/workspace .
 </entrypoint>
 ```
 
