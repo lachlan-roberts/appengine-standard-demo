@@ -23,8 +23,10 @@ unzip $RUNTIME_DEPLOYMENT_ZIP -d $RUNTIME_DEPLOYMENT
 # mvn exec:java -pl :appengine-apis-dev -Dexec.mainClass="com.google.appengine.tools.development.HttpApiServer"
 
 "$JAVA_HOME"/bin/java \
- --add-opens java.base/java.lang=ALL-UNNAMED  \
+ --add-opens java.base/java.lang=ALL-UNNAMED \
  --add-opens java.base/java.nio.charset=ALL-UNNAMED \
+ --add-opens java.logging/java.util.logging=ALL-UNNAMED \
+ --add-opens java.base/java.util.concurrent=ALL-UNNAMED \
  -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 \
  -showversion -XX:+PrintCommandLineFlags \
  -Djava.class.path=$RUNTIME_DEPLOYMENT/runtime-main.jar \

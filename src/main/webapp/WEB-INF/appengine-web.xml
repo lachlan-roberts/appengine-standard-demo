@@ -16,25 +16,30 @@
 -->
 
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-  <runtime>java17</runtime>
+  <runtime>java21</runtime>
   <application>maxresponsesizeapp</application>
   <instance-class>F4</instance-class>
+  <!-- todo restrict scaling -->
+  <threadsafe>true</threadsafe>
 
   <system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
-<!--    <property name="appengine.use.jetty12" value="true"/>-->
-    <property name="appengine.use.EE8" value="true"/>
+    <property name="appengine.use.EE10" value="true"/>
+    <property name="appengine.use.EE8" value="false"/>
+<!--    <property name="appengine.use.HttpConnector" value="true"/>-->
+    <property name="jetty.server.dumpAfterStart" value="true"/>
   </system-properties>
 
     <env-variables>
 <!--      <env-var name="PORT_ENV_VARIABLE_NAME" value="8080" />-->
 <!--      <env-var name="GAE_DISABLE_NGINX" value="true" />-->
+      <env-var name="GOOGLE_APPLICATION_CREDENTIALS_SKIP_APP_ENGINE" value="true"/>
     </env-variables>
 
-  <static-files>
-    <include path="/doesNotExist"/>
-    <include path="/static/*"/>
-  </static-files>
+<!--  <static-files>-->
+<!--    <include path="/doesNotExist"/>-->
+<!--    <include path="/static/*"/>-->
+<!--  </static-files>-->
 
   <entrypoint>
     java

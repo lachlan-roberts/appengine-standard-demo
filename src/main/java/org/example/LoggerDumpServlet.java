@@ -3,14 +3,17 @@ package org.example;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.logging.Logger;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoggerDumpServlet extends HttpServlet
 {
-    private static final Logger logger = Logger.getLogger(LoggerDumpServlet.class.getName());
+    private static final java.util.logging.Logger JUL_LOGGER = java.util.logging.Logger.getLogger(LoggerDumpServlet.class.getName());
+    private static final Logger SLF4J_LOGGER = LoggerFactory.getLogger(LoggerDumpServlet.class.getName());
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException
@@ -19,11 +22,28 @@ public class LoggerDumpServlet extends HttpServlet
         resp.setStatus(200);
         PrintWriter writer = resp.getWriter();
 
+        System.err.println(getClass().getSimpleName() + " logging at System.err.");
+        System.out.println(getClass().getSimpleName() + " logging at System.out.");
+
+        SLF4J_LOGGER.trace(getClass().getSimpleName() + " logging SLF4J at trace.");
+        SLF4J_LOGGER.debug(getClass().getSimpleName() + " logging SLF4J at debug.");
+        SLF4J_LOGGER.info(getClass().getSimpleName() + " logging SLF4J at info.");
+        SLF4J_LOGGER.warn(getClass().getSimpleName() + " logging SLF4J at warn.");
+        SLF4J_LOGGER.error(getClass().getSimpleName() + " logging SLF4J at error.");
+
+        JUL_LOGGER.finest(getClass().getSimpleName() + " logging JUL at finest.");
+        JUL_LOGGER.finer(getClass().getSimpleName() + " logging JUL at finer.");
+        JUL_LOGGER.fine(getClass().getSimpleName() + " logging JUL at fine.");
+        JUL_LOGGER.info(getClass().getSimpleName() + " logging JUL at info.");
+        JUL_LOGGER.config(getClass().getSimpleName() + " logging JUL at config.");
+        JUL_LOGGER.warning(getClass().getSimpleName() + " logging JUL at warning.");
+        JUL_LOGGER.severe(getClass().getSimpleName() + " logging JUL at severe.");
+
         try
         {
             int i = 0;
             writer.println("configFile: " + System.getProperty("java.util.logging.config.file") + "\n");
-            for (Logger l = logger; l != null; l = l.getParent())
+            for (java.util.logging.Logger l = JUL_LOGGER; l != null; l = l.getParent())
             {
                 writer.println(l.getName() + " " + l.getClass() + " " + l.hashCode());
                 writer.println("level: " + l.getLevel());

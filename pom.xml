@@ -18,7 +18,7 @@
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
-      <version>4.0.4</version>
+      <version>6.0.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -26,6 +26,38 @@
       <artifactId>jetty-util</artifactId>
       <version>${jetty.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-api-1.0-sdk</artifactId>
+      <version>2.0.24</version>
+    </dependency>
+
+<!--    &lt;!&ndash; Logback JARs &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>ch.qos.logback</groupId>-->
+<!--      <artifactId>logback-classic</artifactId>-->
+<!--      <version>1.4.14</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>ch.qos.logback</groupId>-->
+<!--      <artifactId>logback-core</artifactId>-->
+<!--      <version>1.4.14</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Google Cloud Logging appender for Logback &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>com.google.cloud</groupId>-->
+<!--      <artifactId>google-cloud-logging-logback</artifactId>-->
+<!--      <version>0.131.2-alpha</version>-->
+<!--    </dependency>-->
+
   </dependencies>
 
   <build>

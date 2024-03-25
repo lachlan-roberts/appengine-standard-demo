@@ -18,11 +18,12 @@ package org.example;
 
 import java.io.IOException;
 import java.util.logging.Logger;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class SizedResponseServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(SizedResponseServlet.class.getName());
@@ -48,6 +49,8 @@ public class SizedResponseServlet extends HttpServlet {
             outputStream.println("RequestContentLength: " + totalRead);
 
         String sizeParam = req.getParameter("size");
+
+        // todo chunk size
         long size = (sizeParam == null) ? 0 : Long.parseLong(sizeParam);
 
         // Write 32MB of data.
