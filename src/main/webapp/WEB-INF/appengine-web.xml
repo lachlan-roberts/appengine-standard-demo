@@ -19,41 +19,27 @@
   <runtime>java21</runtime>
   <application>maxresponsesizeapp</application>
   <instance-class>F4</instance-class>
-  <!-- todo restrict scaling -->
   <threadsafe>true</threadsafe>
 
   <system-properties>
-    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     <property name="appengine.use.EE10" value="true"/>
     <property name="appengine.use.EE8" value="false"/>
-<!--    <property name="appengine.use.HttpConnector" value="true"/>-->
     <property name="jetty.server.dumpAfterStart" value="false"/>
   </system-properties>
 
-    <env-variables>
-<!--      <env-var name="PORT_ENV_VARIABLE_NAME" value="8080" />-->
-<!--      <env-var name="GAE_DISABLE_NGINX" value="true" />-->
-      <env-var name="GOOGLE_APPLICATION_CREDENTIALS_SKIP_APP_ENGINE" value="true"/>
-    </env-variables>
-
-<!--  <static-files>-->
-<!--    <include path="/doesNotExist"/>-->
-<!--    <include path="/static/*"/>-->
-<!--  </static-files>-->
-
-<!--  <entrypoint>-->
-<!--    java-->
-<!--    -showversion-->
-<!--    &#45;&#45;add-opens java.base/java.lang=ALL-UNNAMED-->
-<!--    &#45;&#45;add-opens java.base/java.nio.charset=ALL-UNNAMED-->
-<!--    &#45;&#45;add-opens java.logging/java.util.logging=ALL-UNNAMED-->
-<!--    &#45;&#45;add-opens java.base/java.util.concurrent=ALL-UNNAMED-->
-<!--    -Dclasspath.runtimebase=/workspace-->
-<!--    -Djava.class.path=runtime-main.jar-->
-<!--    -Djava.library.path=.:-->
-<!--    com/google/apphosting/runtime/JavaRuntimeMainWithDefaults-->
-<!--    &#45;&#45;fixed_application_path=/workspace .-->
-<!--  </entrypoint>-->
+  <entrypoint>
+    java
+    -showversion
+    --add-opens java.base/java.lang=ALL-UNNAMED
+    --add-opens java.base/java.nio.charset=ALL-UNNAMED
+    --add-opens java.logging/java.util.logging=ALL-UNNAMED
+    --add-opens java.base/java.util.concurrent=ALL-UNNAMED
+    -Dclasspath.runtimebase=/workspace
+    -Djava.class.path=runtime-main.jar
+    -Djava.library.path=.:
+    com/google/apphosting/runtime/JavaRuntimeMainWithDefaults
+    --fixed_application_path=/workspace .
+  </entrypoint>
 
 </appengine-web-app>
 
