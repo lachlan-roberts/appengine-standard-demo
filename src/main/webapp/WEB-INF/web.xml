@@ -62,18 +62,18 @@
     <url-pattern>/quickstart</url-pattern>
   </servlet-mapping>
 
-  <servlet>
-    <servlet-name>DefaultServlet</servlet-name>
-    <servlet-class>org.eclipse.jetty.ee10.servlet.DefaultServlet</servlet-class>
-    <init-param>
-      <param-name>baseResource</param-name>
-      <param-value>console</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DefaultServlet</servlet-name>
-    <url-pattern>/console/*</url-pattern>
-  </servlet-mapping>
+<!--  <servlet>-->
+<!--    <servlet-name>DefaultServlet</servlet-name>-->
+<!--    <servlet-class>org.eclipse.jetty.ee10.servlet.DefaultServlet</servlet-class>-->
+<!--    <init-param>-->
+<!--      <param-name>baseResource</param-name>-->
+<!--      <param-value>console</param-value>-->
+<!--    </init-param>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>DefaultServlet</servlet-name>-->
+<!--    <url-pattern>/console/*</url-pattern>-->
+<!--  </servlet-mapping>-->
 
 <!--  <filter>-->
 <!--    <filter-name>LastModifiedFilter</filter-name>-->
