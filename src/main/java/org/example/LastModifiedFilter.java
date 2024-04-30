@@ -17,10 +17,31 @@ public class LastModifiedFilter extends HttpFilter
         res = new HttpServletResponseWrapper(res)
         {
             @Override
+            public void setDateHeader(String name, long date)
+            {
+                if (!"Last-Modified".equals(name))
+                    super.setDateHeader(name, date);
+            }
+
+            @Override
             public void setHeader(String name, String value)
             {
                 if (!"Last-Modified".equals(name))
                     super.setHeader(name, value);
+            }
+
+            @Override
+            public void setIntHeader(String name, int value)
+            {
+                if (!"Last-Modified".equals(name))
+                    super.setIntHeader(name, value);
+            }
+
+            @Override
+            public void addHeader(String name, String value)
+            {
+                if (!"Last-Modified".equals(name))
+                    super.addHeader(name, value);
             }
         };
 

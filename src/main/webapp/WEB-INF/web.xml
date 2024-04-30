@@ -15,6 +15,14 @@
       <param-name>baseResource</param-name>
       <param-value>console</param-value>
     </init-param>
+    <init-param>
+      <param-name>dirAllowed</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cacheControl</param-name>
+      <param-value>max-age=18000,public</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>DefaultServlet</servlet-name>

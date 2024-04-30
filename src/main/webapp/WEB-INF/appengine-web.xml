@@ -26,6 +26,10 @@
     <property name="jetty.server.dumpAfterStart" value="false"/>
   </system-properties>
 
+  <static-files>
+    <exclude path="/**"/>
+  </static-files>
+
   <entrypoint>
     java
     -showversion
