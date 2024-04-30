@@ -9,18 +9,26 @@
   <display-name>Max Response Size Test</display-name>
 
   <servlet>
-    <servlet-name>HomeServlet</servlet-name>
-    <servlet-class>org.example.HomeServlet</servlet-class>
+    <servlet-name>DefaultServlet</servlet-name>
+    <servlet-class>org.eclipse.jetty.ee10.servlet.DefaultServlet</servlet-class>
     <init-param>
       <param-name>baseResource</param-name>
       <param-value>console</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
-    <servlet-name>HomeServlet</servlet-name>
+    <servlet-name>DefaultServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <filter>
+    <filter-name>LastModifiedFilter</filter-name>
+    <filter-class>org.example.LastModifiedFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LastModifiedFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>
 
 
