@@ -33,7 +33,7 @@
     <env-variables>
 <!--      <env-var name="PORT_ENV_VARIABLE_NAME" value="8080" />-->
 <!--      <env-var name="GAE_DISABLE_NGINX" value="true" />-->
-      <env-var name="GOOGLE_APPLICATION_CREDENTIALS_SKIP_APP_ENGINE" value="true"/>
+<!--      <env-var name="GOOGLE_APPLICATION_CREDENTIALS_SKIP_APP_ENGINE" value="true"/>-->
     </env-variables>
 
 <!--  <static-files>-->
