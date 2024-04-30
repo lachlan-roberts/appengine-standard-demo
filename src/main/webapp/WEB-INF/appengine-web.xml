@@ -41,19 +41,19 @@
 <!--    <include path="/static/*"/>-->
 <!--  </static-files>-->
 
-<!--  <entrypoint>-->
-<!--    java-->
-<!--    -showversion-->
-<!--    &#45;&#45;add-opens java.base/java.lang=ALL-UNNAMED-->
-<!--    &#45;&#45;add-opens java.base/java.nio.charset=ALL-UNNAMED-->
-<!--    &#45;&#45;add-opens java.logging/java.util.logging=ALL-UNNAMED-->
-<!--    &#45;&#45;add-opens java.base/java.util.concurrent=ALL-UNNAMED-->
-<!--    -Dclasspath.runtimebase=/workspace-->
-<!--    -Djava.class.path=runtime-main.jar-->
-<!--    -Djava.library.path=.:-->
-<!--    com/google/apphosting/runtime/JavaRuntimeMainWithDefaults-->
-<!--    &#45;&#45;fixed_application_path=/workspace .-->
-<!--  </entrypoint>-->
+  <entrypoint>
+    java
+    -showversion
+    --add-opens java.base/java.lang=ALL-UNNAMED
+    --add-opens java.base/java.nio.charset=ALL-UNNAMED
+    --add-opens java.logging/java.util.logging=ALL-UNNAMED
+    --add-opens java.base/java.util.concurrent=ALL-UNNAMED
+    -Dclasspath.runtimebase=/workspace
+    -Djava.class.path=runtime-main.jar
+    -Djava.library.path=.:
+    com/google/apphosting/runtime/JavaRuntimeMainWithDefaults
+    --fixed_application_path=/workspace .
+  </entrypoint>
 
 </appengine-web-app>
 
